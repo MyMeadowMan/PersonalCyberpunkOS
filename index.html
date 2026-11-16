@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f3df36">
+  <meta name="description" content="A personal, local-first operating system with a Night City-inspired interface.">
+  <title>PERSONAL SYSTEM // NIGHT CITY</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="boot-noise" aria-hidden="true"></div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand-lockup">
+        <div class="brand-mark"><span>NC</span><i></i></div>
+        <div><div class="brand-top">PERSONAL SYSTEM</div><div class="brand-bottom">NIGHT CITY INTERFACE <span class="live-dot"></span></div></div>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-avatar">V</div>
+        <div class="profile-copy"><strong>YOUR SPACE</strong><small>SOLO OPERATOR</small></div>
+        <span class="signal-bars"><i></i><i></i><i></i><i></i></span>
+      </div>
+      <div class="nav-caption">MAINFRAME <span>01—09</span></div>
+      <nav id="side-nav" class="nav-list">
+        <button class="nav-item active" data-page="dashboard"><span class="nav-icon">⌂</span><span>Overview</span><kbd>01</kbd></button>
+        <button class="nav-item" data-page="missions"><span class="nav-icon">◎</span><span>Missions</span><kbd>02</kbd></button>
+        <button class="nav-item" data-page="archive"><span class="nav-icon">▤</span><span>Archive</span><kbd>03</kbd></button>
+        <button class="nav-item" data-page="studio"><span class="nav-icon">◈</span><span>Creator studio</span><kbd>04</kbd></button>
+        <button class="nav-item" data-page="media"><span class="nav-icon">▣</span><span>Media library</span><kbd>05</kbd></button>
+        <button class="nav-item" data-page="map"><span class="nav-icon">⌖</span><span>Exploration</span><kbd>06</kbd></button>
+        <button class="nav-item" data-page="calendar"><span class="nav-icon">▦</span><span>Calendar</span><kbd>07</kbd></button>
+        <button class="nav-item" data-page="character"><span class="nav-icon">✳</span><span>Character</span><kbd>08</kbd></button>
+        <button class="nav-item" data-page="inbox"><span class="nav-icon">⇣</span><span>Transmissions</span><kbd>09</kbd><em id="inbox-count" class="nav-count">0</em></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-divider"></div>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span><span>System settings</span><kbd>↗</kbd></button>
+        <div class="sidebar-footer"><span>LOCAL INSTANCE</span><span class="secure-label">● ENCRYPTION N/A</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="mobile-brand-mark">NC</span><span>NIGHT CITY <i class="live-dot"></i></span></div>
+        <div class="breadcrumb"><span>PERSONAL SYSTEM</span><b>/</b><strong id="crumb-current">OVERVIEW</strong></div>
+        <div class="topbar-actions">
+          <button class="icon-action" id="search-open" aria-label="Search" title="Search (Ctrl+K)">⌕<span class="search-hint">SEARCH <kbd>⌘ K</kbd></span></button>
+          <button class="icon-action quick-capture" id="quick-capture" aria-label="Quick capture" title="Quick capture">＋</button>
+          <div class="top-status"><span class="live-dot"></span><span>ALL SYSTEMS</span></div>
+        </div>
+      </header>
+
+      <div class="page-wrap">
+        <div class="page-head">
+          <div><div class="eyebrow" id="page-eyebrow">YOUR WORLD // YOUR RULES</div><h1 id="page-title">GOOD EVENING<span class="title-period">.</span></h1><p id="page-subtitle">The city is yours. What are we doing today?</p></div>
+          <div class="head-meta"><span class="meta-label">LOCAL TIME</span><strong id="clock">--:--</strong><span id="date-label">LOADING DATE</span></div>
+        </div>
+        <section id="page-content" class="page-content" aria-live="polite"></section>
+        <footer class="app-footer"><span>PERSONAL SYSTEM <b>•</b> BUILD 01.01</span><span>NO CORP. NO RULES. JUST YOU.</span><span id="storage-indicator">LOCAL STORAGE ACTIVE</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="mobile-nav-item active" data-page="dashboard"><span>⌂</span><small>HOME</small></button>
+    <button class="mobile-nav-item" data-page="missions"><span>◎</span><small>MISSIONS</small></button>
+    <button class="mobile-nav-item" data-page="studio"><span>◈</span><small>STUDIO</small></button>
+    <button class="mobile-nav-item" data-page="archive"><span>▤</span><small>ARCHIVE</small></button>
+    <button class="mobile-nav-item" id="mobile-more"><span>•••</span><small>MORE</small></button>
+  </nav>
+  <div id="mobile-drawer" class="mobile-drawer" hidden>
+    <div class="drawer-scrim" data-close-drawer></div>
+    <div class="drawer-panel"><div class="drawer-top"><strong>ALL SYSTEMS</strong><button class="close-button" data-close-drawer>×</button></div>
+      <div class="drawer-grid">
+        <button data-page="media"><span>▣</span>Media library</button><button data-page="map"><span>⌖</span>Exploration</button>
+        <button data-page="calendar"><span>▦</span>Calendar</button><button data-page="character"><span>✳</span>Character</button>
+        <button data-page="inbox"><span>⇣</span>Transmissions</button><button data-page="settings"><span>⚙</span>Settings</button>
+      </div>
+      <div class="drawer-note">Your personal world, wherever you go.</div>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
